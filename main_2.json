@@ -1,0 +1,504 @@
+{
+  "type": "APL",
+  "version": "1.0",
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alexa-styles",
+      "version": "1.0.0"
+    }
+  ],
+  "resources": [],
+  "styles": {
+    "stylePressable": {
+      "values": [
+        {
+          "color": "white",
+          "backgroundColor": "#0009",
+          "overlayColor": "#0007"
+        },
+        {
+          "when": "${state.pressed}",
+          "color": "gray",
+          "backgroundColor": "black",
+          "overlayColor": "#0009"
+        }
+      ]
+    }
+  },
+  "layouts": {
+    "workshopShow": {
+      "parameters": [],
+      "items": [
+        {
+          "type": "Container",
+          "width": "100vw",
+          "height": "100vh",
+          "items": [
+            {
+              "type": "Pager",
+              "width": "100vw",
+              "height": "100vh",
+              "position": "absolute",
+              "id": "backgroundPager",
+              "items": [
+                {
+                  "type": "Container",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "source": "${payload.workshopData.properties.backgroundImage[0]}",
+                      "overlayColor": "#0009",
+                      "scale": "best-fill",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "Image",
+                      "source": "${payload.workshopData.properties.logoImage}",
+                      "scale": "best-fill",
+                      "width": "30vw",
+                      "height": "30vw",
+                      "alignSelf": "center"
+                    }
+                  ]
+                },
+                {
+                  "type": "Container",
+                  "alignItems": "center",
+                  "justifyContent": "start",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                    {
+                      "type": "Frame",
+                      "backgroundColor": "#162a38",
+                      "scale": "best-fill",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "Text",
+                      "text": "${payload.workshopData.properties.primaryText}",
+                      "position": "absolute",
+                      "fontSize": "@fontSizeSmall",
+                      "left": "20vw",
+                      "top": "2vh",
+                      "height": "10vh",
+                      "width": "60vw",
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "id": "karFactText",
+                      "speech": "${payload.workshopData.properties.karFactSpeech}"
+                    },
+                    {
+                      "type": "TouchWrapper",
+                      "position": "absolute",
+                      "left": "2vw",
+                      "top": "22vh",
+                      "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                          "${payload.workshopData.properties.event_1}"
+                        ]
+                      },
+                      "item": {
+                        "type": "Frame",
+                        "inheritParentState": true,
+                        "style": "stylePressable",
+                        "borderRadius": "5dp",
+                        "borderWidth": "0dp",
+                        "borderColor": "black",
+                        "height": "60vh",
+                        "width": "31vw",
+                        "item": {
+                          "type": "Container",
+                          "inheritParentState": true,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "width": "100%",
+                          "height": "100%",
+                          "items": [
+                            {
+                              "type": "Image",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "source": "${payload.workshopData.properties.backgroundImage[0]}",
+                              "scale": "best-fill",
+                              "borderRadius": "5dp",
+                              "width": "100%",
+                              "height": "100%",
+                              "position": "absolute"
+                            },
+                            {
+                              "type": "Text",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "text": "${payload.workshopData.properties.channel_1}",
+                              "fontSize": "@fontSizeMedium",
+                              "height": "15vh",
+                              "textAlign": "center",
+                              "textAlignVertical": "center",
+                              "position": "absolute"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "TouchWrapper",
+                      "position": "absolute",
+                      "left": "34.5vw",
+                      "top": "22vh",
+                      "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                          "${payload.workshopData.properties.event_2}"
+                        ]
+                      },
+                      "item": {
+                        "type": "Frame",
+                        "inheritParentState": true,
+                        "style": "stylePressable",
+                        "backgroundColor": "red",
+                        "borderRadius": "5dp",
+                        "borderWidth": "0dp",
+                        "borderColor": "black",
+                        "height": "60vh",
+                        "width": "31vw",
+                        "item": {
+                          "type": "Container",
+                          "inheritParentState": true,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "width": "100%",
+                          "height": "100%",
+                          "items": [
+                            {
+                              "type": "Image",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "source": "${payload.workshopData.properties.backgroundImage[1]}",
+                              "scale": "best-fill",
+                              "borderRadius": "5dp",
+                              "width": "100%",
+                              "height": "100%",
+                              "position": "absolute"
+                            },
+                            {
+                              "type": "Text",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "text": "${payload.workshopData.properties.channel_2}",
+                              "fontSize": "@fontSizeMedium",
+                              "height": "15vh",
+                              "textAlign": "center",
+                              "textAlignVertical": "center",
+                              "position": "absolute"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+    "type": "ScrollView",
+    "item": {
+        "type": "Text",
+        "id": "catFactText",
+        "text": "${catFactData.properties.catFact}",
+        "speech": "${catFactData.properties.catFactSpeech}"
+    }
+},
+                    {
+                      "type": "Text",
+                      "text": "${payload.workshopData.properties.hintString}",
+                      "position": "absolute",
+                      "style": "textStyleHint",
+                      "left": "20vw",
+                      "top": "85vh",
+                      "height": "15vh",
+                      "width": "60vw",
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "transformers": [
+                        {
+                          "inputPath": "hintString",
+                          "transformer": "textToHint"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "workshopSpot": {
+      "parameters": [],
+      "items": [
+        {
+          "type": "Container",
+          "width": "100vw",
+          "height": "100vh",
+          "items": [
+            {
+              "type": "Pager",
+              "width": "100vw",
+              "height": "100vh",
+              "position": "absolute",
+              "id": "backgroundPager",
+              "items": [
+                {
+                  "type": "Container",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "source": "${payload.workshopData.properties.backgroundImage[0]}",
+                      "overlayColor": "#0009",
+                      "scale": "best-fill",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "Image",
+                      "source": "${payload.workshopData.properties.logoImage}",
+                      "scale": "best-fill",
+                      "width": "30vw",
+                      "height": "30vw",
+                      "alignSelf": "center"
+                    }
+                  ]
+                },
+                {
+                  "type": "Container",
+                  "alignItems": "center",
+                  "justifyContent": "start",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                    {
+                      "type": "Frame",
+                      "backgroundColor": "#162a38",
+                      "scale": "best-fill",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "Image",
+                      "source": "${payload.workshopData.properties.logoImage}",
+                      "scale": "best-fill",
+                      "width": "16vw",
+                      "height": "16vw",
+                      "top": "5vh",
+                      "right": "42vw",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "TouchWrapper",
+                      "position": "absolute",
+                      "left": "15vw",
+                      "top": "25vh",
+                      "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                          "${payload.workshopData.properties.event_1}"
+                        ]
+                      },
+                      "item": {
+                        "type": "Frame",
+                        "inheritParentState": true,
+                        "style": "stylePressable",
+                        "borderRadius": "5dp",
+                        "borderWidth": "0dp",
+                        "borderColor": "black",
+                        "height": "20vh",
+                        "width": "70vw",
+                        "item": {
+                          "type": "Container",
+                          "inheritParentState": true,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "width": "100%",
+                          "height": "100%",
+                          "items": [
+                            {
+                              "type": "Image",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "source": "${payload.workshopData.properties.backgroundImage[0]}",
+                              "scale": "best-fill",
+                              "borderRadius": "5dp",
+                              "width": "100%",
+                              "height": "100%",
+                              "position": "absolute"
+                            },
+                            {
+                              "type": "Text",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "text": "${payload.workshopData.properties.channel_1}",
+                              "fontSize": "@fontSizeMedium",
+                              "height": "20vh",
+                              "textAlign": "center",
+                              "textAlignVertical": "center",
+                              "position": "absolute"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "TouchWrapper",
+                      "position": "absolute",
+                      "left": "15vw",
+                      "top": "48vh",
+                      "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                          "${payload.workshopData.properties.event_2}"
+                        ]
+                      },
+                      "item": {
+                        "type": "Frame",
+                        "inheritParentState": true,
+                        "style": "stylePressable",
+                        "borderRadius": "5dp",
+                        "borderWidth": "0dp",
+                        "borderColor": "black",
+                        "height": "20vh",
+                        "width": "70vw",
+                        "item": {
+                          "type": "Container",
+                          "inheritParentState": true,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "width": "100%",
+                          "height": "100%",
+                          "items": [
+                            {
+                              "type": "Image",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "source": "${payload.workshopData.properties.backgroundImage[1]}",
+                              "scale": "best-fill",
+                              "borderRadius": "5dp",
+                              "width": "100%",
+                              "height": "100%",
+                              "position": "absolute"
+                            },
+                            {
+                              "type": "Text",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "text": "${payload.workshopData.properties.channel_2}",
+                              "fontSize": "@fontSizeMedium",
+                              "height": "15vh",
+                              "textAlign": "center",
+                              "textAlignVertical": "center",
+                              "position": "absolute"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "TouchWrapper",
+                      "position": "absolute",
+                      "right": "15vw",
+                      "top": "71vh",
+                      "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                          "${payload.workshopData.properties.event_3}"
+                        ]
+                      },
+                      "item": {
+                        "type": "Frame",
+                        "inheritParentState": true,
+                        "style": "stylePressable",
+                        "borderRadius": "5dp",
+                        "borderWidth": "0dp",
+                        "borderColor": "black",
+                        "height": "20vh",
+                        "width": "70vw",
+                        "item": {
+                          "type": "Container",
+                          "inheritParentState": true,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "width": "100%",
+                          "height": "100%",
+                          "items": [
+                            {
+                              "type": "Image",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "source": "${payload.workshopData.properties.backgroundImage[2]}",
+                              "scale": "best-fill",
+                              "borderRadius": "5dp",
+                              "width": "100%",
+                              "height": "100%",
+                              "position": "absolute"
+                            },
+                            {
+                              "type": "Text",
+                              "inheritParentState": true,
+                              "style": "stylePressable",
+                              "text": "${payload.workshopData.properties.channel_3}",
+                              "fontSize": "@fontSizeMedium",
+                              "height": "20vh",
+                              "textAlign": "center",
+                              "textAlignVertical": "center",
+                              "position": "absolute"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "direction": "column",
+        "width": "100vw",
+        "height": "100vh",
+        "items": [
+          {
+            "when": "${viewport.shape == 'round'}",
+            "type": "workshopSpot"
+          },
+          {
+            "when": "${viewport.shape == 'rectangle'}",
+            "type": "workshopShow"
+          }
+        ]
+      }
+    ]
+  }
+}
